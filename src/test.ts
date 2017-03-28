@@ -32,6 +32,15 @@ window.onload = () => {
     // console.log(bitmap1.img.naturalWidth);
     // console.log(bitmap1.scaleX);
 
+    // var bitmap2 = engine.RES.getRes("../bitmap/weapan001.png");
+
+    // stage.addChild(bitmap2);
+    // bitmap2.x = 300;
+    // bitmap2.y = 300;
+
+
+
+
     bitmap1.touchEnable = true;
 
     textfield.touchEnable = true;
