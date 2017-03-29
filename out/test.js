@@ -28,6 +28,7 @@ window.onload = function () {
     // console.log("test:" + bitmap1.width);
     // console.log(bitmap1.img.naturalWidth);
     // console.log(bitmap1.scaleX);
+    //hsadjajlsdjlaksjdka??
     engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119);
     var bitmap2 = new engine.Bitmap();
     var img = engine.RES.getRes("weapan001");

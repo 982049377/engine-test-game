@@ -32,6 +32,7 @@ window.onload = () => {
     // console.log(bitmap1.img.naturalWidth);
     // console.log(bitmap1.scaleX);
 
+//hsadjajlsdjlaksjdka??
     engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119)
 
     var bitmap2 = new engine.Bitmap();
@@ -39,6 +40,7 @@ window.onload = () => {
     bitmap2.img = img.bitmapData;
     bitmap2.x = 100;
     bitmap2.y = 100;
+
 
 
     // var bitmap2 = engine.RES.getRes("../bitmap/weapan001.png");
