@@ -13,16 +13,17 @@ window.onload = () => {
     textfield.fontName = "sans-serif";
     textfield.text = "Hello,world";
 
-    var bitmap1 = new engine.Bitmap();
-    //  bitmap1.rotation = 90;//旋转会涉及到锚点问题
-    bitmap1.x = 0;
-    bitmap1.y = 0;
-    bitmap1.alpha = 0.8;
-    bitmap1.scaleX = 1.2;
-    bitmap1.scaleY = 0.5;
+    // var bitmap1 = new engine.Bitmap();
+    // //  bitmap1.rotation = 90;//旋转会涉及到锚点问题
+    // bitmap1.x = 0;
+    // bitmap1.y = 0;
+    // bitmap1.alpha = 0.8;
+    // bitmap1.scaleX = 1.2;
+    // bitmap1.scaleY = 0.5;
 
-    bitmap1.src = "../bitmap/weapan001.png";
-    stage.addChild(bitmap1);
+    // bitmap1.src = "../bitmap/weapan001.png";
+
+    // stage.addChild(bitmap1);
     stage.addChild(textfield);
     //container.draw(context2d);
     stage.x = 200;
@@ -32,32 +33,21 @@ window.onload = () => {
     // console.log(bitmap1.img.naturalWidth);
     // console.log(bitmap1.scaleX);
 
-//hsadjajlsdjlaksjdka??
     engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119)
 
-    var bitmap2 = new engine.Bitmap();
-    var img = engine.RES.getRes("weapan001");
-    bitmap2.img = img.bitmapData;
+    var bitmap2 = new engine.Bitmap("weapan001");
+    // bitmap2.img= engine.RES.getRes("weapan001");
     bitmap2.x = 100;
     bitmap2.y = 100;
 
-
-
-    // var bitmap2 = engine.RES.getRes("../bitmap/weapan001.png");
-
-
-    // stage.addChild(bitmap2);
-    // bitmap2.x = 300;
-    // bitmap2.y = 300;
-    // engine.RES.loadConfig();
     stage.addChild(bitmap2);
 
 
-    bitmap1.touchEnable = true;
+    // bitmap1.touchEnable = true;
 
     textfield.touchEnable = true;
     stage.touchEnable = true;
-    bitmap1.addEventListener(engine.MyTouchEvent.TouchClick, () => { console.log("bitmap1 touched"); });
+    // bitmap1.addEventListener(engine.MyTouchEvent.TouchClick, () => { console.log("bitmap1 touched"); });
     textfield.addEventListener(engine.MyTouchEvent.TouchDown, () => { console.log("textfield touched"); });
     stage.addEventListener(engine.MyTouchEvent.TouchDown, () => { console.log("stage touched 冒泡"); });
     stage.addEventListener(engine.MyTouchEvent.TouchDown, () => { console.log("stage touched 捕获"); }, true);
