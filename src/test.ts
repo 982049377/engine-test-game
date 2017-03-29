@@ -35,13 +35,14 @@ window.onload = () => {
     engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119)
 
     var bitmap2 = new engine.Bitmap();
-    var img = engine.RES.loadRes("weapan001");
+    var img = engine.RES.getRes("weapan001");
     bitmap2.img = img.bitmapData;
     bitmap2.x = 100;
     bitmap2.y = 100;
 
 
     // var bitmap2 = engine.RES.getRes("../bitmap/weapan001.png");
+
 
     // stage.addChild(bitmap2);
     // bitmap2.x = 300;
