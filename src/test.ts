@@ -32,13 +32,22 @@ window.onload = () => {
     // console.log(bitmap1.img.naturalWidth);
     // console.log(bitmap1.scaleX);
 
+    engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119)
+
+    var bitmap2 = new engine.Bitmap();
+    var img = engine.RES.loadRes("weapan001");
+    bitmap2.img = img.bitmapData;
+    bitmap2.x = 100;
+    bitmap2.y = 100;
+
+
     // var bitmap2 = engine.RES.getRes("../bitmap/weapan001.png");
 
     // stage.addChild(bitmap2);
     // bitmap2.x = 300;
     // bitmap2.y = 300;
-
-
+    // engine.RES.loadConfig();
+    stage.addChild(bitmap2);
 
 
     bitmap1.touchEnable = true;
