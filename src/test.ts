@@ -39,9 +39,14 @@ window.onload = () => {
     // bitmap2.img= engine.RES.getRes("weapan001");
     bitmap2.x = 100;
     bitmap2.y = 100;
-
     stage.addChild(bitmap2);
 
+    // var bitmap3 = new engine.Bitmap();
+    // var imageProcessor = new engine.res.ImageProcessor();
+    // bitmap3.img= imageProcessor.load("weapan001.png", () => { 
+
+
+    // });
 
     // bitmap1.touchEnable = true;
 
