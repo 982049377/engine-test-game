@@ -31,9 +31,15 @@ window.onload = function () {
     engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119);
     var bitmap2 = new engine.Bitmap("weapan001");
     // bitmap2.img= engine.RES.getRes("weapan001");
-    bitmap2.x = 100;
+    bitmap2.x = 200;
     bitmap2.y = 100;
-    stage.addChild(bitmap2);
+    // stage.addChild(bitmap2);
+    engine.Tween.get(bitmap2).to({ X: 200 }, 200);
+    // var bitmap3 = new engine.Bitmap();
+    // var imageProcessor = new engine.res.ImageProcessor();
+    // engine.res.load("../bitmap/weapan001.png", () => {
+    //     console.log("渲染weapon");
+    // });
     // bitmap1.touchEnable = true;
     textfield.touchEnable = true;
     stage.touchEnable = true;

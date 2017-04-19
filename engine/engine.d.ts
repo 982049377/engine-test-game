@@ -9,7 +9,7 @@ declare namespace engine.res {
         load(url: string, callback: Function): void;
     }
     function mapTypeSelector(typeSelector: (url: string) => string): void;
-    function load(url: string, callback: (data: any) => void): void;
+    function load(url: string, callback: (data: any) => void): any;
     function get(url: string): any;
     function map(type: string, processor: Processor): void;
 }

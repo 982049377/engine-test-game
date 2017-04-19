@@ -8,6 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+//res 是将资源加载到内存中，RES是加入到舞台。
 var engine;
 (function (engine) {
     var res;
@@ -20,7 +21,6 @@ var engine;
                 image.src = url;
                 image.onload = function () {
                     callback();
-                    return image;
                 };
             };
             return ImageProcessor;
@@ -35,7 +35,6 @@ var engine;
                 xhr.send();
                 xhr.onload = function () {
                     callback(xhr.responseText);
-                    return xhr;
                 };
             };
             return TextProcessor;
@@ -63,6 +62,9 @@ var engine;
         res.get = get;
         var getTypeByURL = function (url) {
             if (url.indexOf(".jpg") >= 0) {
+                return "image";
+            }
+            if (url.indexOf(".png") >= 0) {
                 return "image";
             }
             else if (url.indexOf(".mp3") >= 0) {
