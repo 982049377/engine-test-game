@@ -36,7 +36,8 @@ window.onload = function () {
     bitmap2.x = 200;
     bitmap2.y = 100;
     stage.addChild(bitmap2);
-    // engine.Tween.get(bitmap2).to({ X: 200 }, 200);
+    engine.Twween.get(bitmap2).to({ x: 100 }, 2000);
+    engine.startTick(function () { console.log(bitmap2.x); });
     // var bitmap3 = new engine.Bitmap();
     // var imageProcessor = new engine.res.ImageProcessor();
     // engine.res.load("../bitmap/weapan001.png", () => {

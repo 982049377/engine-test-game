@@ -43,7 +43,8 @@ window.onload = () => {
     bitmap2.y = 100;
     stage.addChild(bitmap2);
 
-    // engine.Tween.get(bitmap2).to({ X: 200 }, 200);
+    engine.Twween.get(bitmap2).to({ x: 100 }, 2000);
+    engine.startTick(() => { console.log(bitmap2.x) })
 
     // var bitmap3 = new engine.Bitmap();
     // var imageProcessor = new engine.res.ImageProcessor();

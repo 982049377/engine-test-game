@@ -993,6 +993,35 @@ var engine;
 })(engine || (engine = {}));
 var engine;
 (function (engine) {
+    var Twween = (function () {
+        function Twween(target) {
+            this.degrees = -1;
+            this.target = target;
+        }
+        Twween.get = function (target) {
+            return new Twween(target);
+        };
+        Twween.prototype.to = function (properties, time) {
+            var _this = this;
+            this.time = time;
+            this.tempProperties = properties;
+            for (var property in properties) {
+                this.tempProperties[property] = properties[property] - this.target[property];
+            }
+            engine.Ticker.Instance.register(function (deltaTime) {
+                if (_this.degrees == -1)
+                    _this.degrees = _this.time / deltaTime;
+                for (var property in properties) {
+                    _this.target[property] += _this.tempProperties[property] / _this.degrees;
+                }
+            });
+        };
+        return Twween;
+    }());
+    engine.Twween = Twween;
+})(engine || (engine = {}));
+var engine;
+(function (engine) {
     var Event = (function () {
         function Event(type, bubbles, cancelable) {
             this.bubbles = false;
@@ -1089,7 +1118,7 @@ var engine;
     }
     engine.stopTick = stopTick;
     function getTimer() {
-        return Date.now();
+        return 1000;
     }
     engine.getTimer = getTimer;
     function MysetTimeout(func, time) {
@@ -1269,7 +1298,7 @@ var engine;
                 bubbleDisplayObjects.forEach(function (displayObject) {
                     displayObject.listenerList.forEach(function (listen) {
                         if (touchEvent.type == listen.type && !listen.isCapture)
-                            listen.func();
+                            listen.func(touchEvent);
                     });
                 });
             }
