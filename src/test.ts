@@ -11,7 +11,7 @@ window.onload = () => {
     textfield.color = "#FF0000"
     textfield.fontSize = 200;
     textfield.fontName = "sans-serif";
-    textfield.text = "Hello,world";
+    textfield.text = "Hello world";
 
     // var bitmap1 = new engine.Bitmap();
     // //  bitmap1.rotation = 90;//旋转会涉及到锚点问题
@@ -32,16 +32,18 @@ window.onload = () => {
     // console.log("test:" + bitmap1.width);
     // console.log(bitmap1.img.naturalWidth);
     // console.log(bitmap1.scaleX);
-
-    engine.RES.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119)
+    engine.ResourceManager.addImageJson("loading.png", "loading.png", 50, 50);
+    engine.ResourceManager.addImageJson("weapan001", "../bitmap/weapan001.png", 119, 119)
+    engine.ResourceLoad.load("loading.png", (data) => { });
 
     var bitmap2 = new engine.Bitmap("weapan001");
     // bitmap2.img= engine.RES.getRes("weapan001");
     bitmap2.x = 200;
-    bitmap2.y = 100;
-    // stage.addChild(bitmap2);
 
-    engine.Tween.get(bitmap2).to({ X: 200 }, 200);
+    bitmap2.y = 100;
+    stage.addChild(bitmap2);
+
+    // engine.Tween.get(bitmap2).to({ X: 200 }, 200);
 
     // var bitmap3 = new engine.Bitmap();
     // var imageProcessor = new engine.res.ImageProcessor();
