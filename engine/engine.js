@@ -995,26 +995,38 @@ var engine;
 (function (engine) {
     var Twween = (function () {
         function Twween(target) {
+            var _this = this;
             this.degrees = -1;
+            this.tick = function (deltaTime) {
+                // private tick(deltaTime) {
+                if (_this.degrees == -1) {
+                    _this.degrees = _this.time / deltaTime;
+                    _this.stoptimes = _this.degrees;
+                }
+                for (var property in _this.targetProperties) {
+                    _this.target[property] += _this.tempProperties[property] / _this.degrees;
+                }
+                _this.stoptimes--;
+                console.log(_this.stoptimes);
+                if (_this.stoptimes <= 0) {
+                    console.log("移除");
+                    engine.Ticker.Instance.unregister(_this.tick);
+                    _this.degrees = -1;
+                }
+            };
             this.target = target;
         }
         Twween.get = function (target) {
             return new Twween(target);
         };
         Twween.prototype.to = function (properties, time) {
-            var _this = this;
             this.time = time;
-            this.tempProperties = properties;
+            this.tempProperties = properties; //只为获得属性
+            this.targetProperties = properties;
             for (var property in properties) {
                 this.tempProperties[property] = properties[property] - this.target[property];
             }
-            engine.Ticker.Instance.register(function (deltaTime) {
-                if (_this.degrees == -1)
-                    _this.degrees = _this.time / deltaTime;
-                for (var property in properties) {
-                    _this.target[property] += _this.tempProperties[property] / _this.degrees;
-                }
-            });
+            engine.Ticker.Instance.register(this.tick);
         };
         return Twween;
     }());

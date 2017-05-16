@@ -415,9 +415,12 @@ declare namespace engine {
         constructor(target: DisplayObject);
         static get(target: DisplayObject): Twween;
         tempProperties: any;
+        targetProperties: any;
         time: number;
         degrees: number;
+        private stoptimes;
         to(properties: any, time: number): void;
+        private tick;
     }
 }
 declare namespace engine {
